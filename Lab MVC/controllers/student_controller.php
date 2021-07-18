@@ -2,12 +2,14 @@
 	include 'models/db_config.php';
 	$name="";
 	$err_name="";
-	$uname="";
-	$err_uname="";
-	$email="";
-	$err_email="";
-	$pass="";
-	$err_pass="";
+	$dob="";
+	$err_dob="";
+	$credit="";
+	$err_credit="";
+	$cgpa="";
+	$err_cgpa="";
+	$dept_id="";
+	$err_dept_id="";
 	$err_db="";
 	$hasError=false;
 	if(isset ($_POST["sign_up"])){
@@ -19,18 +21,34 @@
 			$name=$_POST["name"];
 		}
 		
-		if(empty ($_POST["uname"])){
-			$err_uname="Username required";
+		if(empty ($_POST["dob"])){
+			$err_dob="Date of birth required";
 			$hasError=true;
 		}
 		else{
-			$uname=$_POST["uname"];
+			$dob=$_POST["dob"];
+		}
+		
+		if(empty ($_POST["credit"])){
+			$err_credit="Credit required";
+			$hasError=true;
+		}
+		else{
+			$credit=$_POST["credit"];
+		}
+		
+		if(empty ($_POST["cgpa"])){
+			$err_cgpa="cgpa required";
+			$hasError=true;
+		}
+		else{
+			$cgpa=$_POST["cgpa"];
 		}
 		if(!$hasError){
-			$rs = insertUser($name, $uname, $_POST["email"],$_POST["pass"]);
+			$rs = insertUser($name, $dob, $_POST["credit"],$_POST["cgpa"],$_POST["dept_id"]);
 			if($rs=== true)
 			{
-				header ("Location: Login.php");
+				header ("Location: student_login.php");
 			}
 			$err_db = $rs;
 		}
