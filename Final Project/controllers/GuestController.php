@@ -40,7 +40,7 @@
 			$rs = insertUser($name,$uname,$email,$pass);
 			//var_dump($rs);
 			if($rs === true){
-				header("Location: login.php");
+				header("Location: guest_login.php");
 			}
 			$err_db = $rs;
 			
@@ -65,7 +65,7 @@
 				session_start();
 				$_SESSION["loggeduser"] = $_POST["uname"];
 				//if($user["status"] == "active" && $user["type"]=="admin")
-					header("Location: dashboard.php");
+					header("Location: allcategories.php");
 				//else if($user["status"] == "active" && $user["type"]=="user"){
 					//header("Location: user_dashboard.php");
 				//}
@@ -85,11 +85,11 @@
 	}
 	
 	function insertUser($name,$uname,$email,$pass){
-		$query  = "insert into users values (NULL,'$name','$uname','$email','$pass')";
+		$query  = "insert into guest_user values (NULL,'$name','$uname','$email','$pass')";
 		return execute($query);	
 	}
 	function authenticateUser($uname,$pass){
-		$query ="select * from users where username='$uname' and password='$pass'";
+		$query ="select * from guest_user where username='$uname' and password='$pass'";
 		$rs = get($query);
 		if(count($rs)>0){
 			return $rs[0];
@@ -98,7 +98,7 @@
 		
 	}
 	function checkUsername($uname){
-		$query = "select name from users where username='$uname'";
+		$query = "select name from guest_user where username='$uname'";
 		$rs = get($query);
 		if(count($rs) > 0){
 			return true;

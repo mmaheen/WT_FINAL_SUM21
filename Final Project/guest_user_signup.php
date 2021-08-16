@@ -1,12 +1,12 @@
-<?php include 'MainHeader.php';?>
+<?php include 'main_header.php';?>
 
 <?php
-	include 'controllers/UserController.php';
+	include 'controllers/GuestController.php';
 ?>
 
 
 
-	<h1 align ="center">Sign Up</h1>
+	<h1 align ="center">Guest User Sign Up</h1>
 	<h5><?php echo $err_db;?></h5>
 	<form action="" method="post">
 		<table align ="center">
@@ -44,7 +44,7 @@
 					Password
 				</td>
 				<td>
-					<input type="password" name="pass"  value="<?php echo $pass;?>">
+					<input type="password" name="pass" value="<?php echo $pass;?>">
 					<span id="err_pass"><?php echo $err_pass;?></span>
 				</td>
 			</tr>
@@ -56,4 +56,6 @@
 		</table>
 	</form>
 
-<?php include 'MainFooter.php';?>
+
+<!--sign up ends -->
+<?php include 'main_footer.php';?>

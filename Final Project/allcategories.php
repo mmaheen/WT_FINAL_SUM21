@@ -23,8 +23,8 @@
 					echo "<tr>";
 						echo "<td>$i</td>";
 						echo "<td>".$c["name"]."</td>";
-						echo '<td><a href="editcategory.php?id='.$c["id"].'" class="btn btn-success">Edit</a></td>';
-						echo '<td><a>Delete</a></td>';
+						//echo '<td><a href="editcategory.php?id='.$c["id"].'" class="btn btn-success">Edit</a></td>';
+						//echo '<td><a>Delete</a></td>';
 					echo "</tr>";
 					$i++;
 				}
@@ -35,11 +35,4 @@
 	</table>
 </div>
 <!--All Categories ends -->
-<?php include 'admin_footer.php';?><?php include 'MainHeader.php';
-?>
-<h1>
-	All Categories
-</h1>
-<?php include 'MainFooter.php';
-
-?>
+<?php include 'admin_footer.php';?>

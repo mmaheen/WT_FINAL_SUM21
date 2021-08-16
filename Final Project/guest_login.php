@@ -1,9 +1,9 @@
-<?php include 'MainHeader.php';
-	  include 'controllers/UserController.php';
+<?php include 'main_header.php';
+	  include 'controllers/GuestController.php';
 ?>
 
 	<h1 align = "center">
-		Login
+		Guest Login
 	</h1>
 	<h5><?php echo $err_db;?></h5>
 	<form action="" method="post">
@@ -37,4 +37,4 @@
 </div>
 
 <!--login ends -->
-<?php include 'MainFooter.php';?>
+<?php include 'main_footer.php';?>
