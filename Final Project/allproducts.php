@@ -1,4 +1,8 @@
-<?php include 'admin_header.php';
+<?php session_start();
+if(!isset ($_SESSION["loggeduser"])){
+	header ("Location: guest_login.php");
+}
+ include 'guest_header.php';
 	require_once 'controllers/ProductController.php';
 	$products = getProducts();
 ?>
@@ -6,18 +10,20 @@
 
 <script src="js/products.js"></script>
 <div class="center">
-	<h3 class="text">All Products</h3>
+	<h3 class="text">All Products <?php echo $_SESSION["loggeduser"];?> </h3>
 	<input type="text" class="form-control" onkeyup="search(this)" placeholder="Search..." >
 	<div id="suggestions">
 	</div>
 	<table class="table table-striped">
 		<thead>
-			<th>Sl#</th>
+			<th>Serial</th>
 			<th></th>
 			<th> Name</th>
 			<th>Category </th>
+			<th> Brand</th>
 			<th> Price</th>
 			<th> Quantity</th>
+			<th> Description</th>
 			<th></th>
 			<th></th>
 			
@@ -33,9 +39,11 @@
 						echo "<td><img src='".$p["img"]."' width='100px' height='100px'></td>";
 						echo "<td>".$p["name"]."</td>";
 						echo "<td>".$p["c_name"]."</td>";
+						echo "<td>".$p["b_name"]."</td>";
 						echo "<td>".$p["price"]."</td>";
 						echo "<td>".$p["qty"]."</td>";
-						echo '<td><a href="cart.php?id='.$p["id"].'" class="btn btn-success">Add to cart</a></td>';
+						echo "<td>".$p["description"]."</td>";
+						echo '<td><a href="editproduct.php?id='.$p["id"].'" class="btn btn-success">Add to cart</a></td>';
 						//echo '<td><a class="btn btn-danger">Delete</td>';
 					echo "</tr>";
 					$i++;
@@ -45,4 +53,4 @@
 	</table>
 </div>
 <!--Products ends -->
-<?php include 'admin_footer.php';?>
+<?php include 'guest_footer.php';?>

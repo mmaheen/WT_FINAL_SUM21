@@ -10,12 +10,12 @@ $p = getProduct($id);
     <head>
     </head>
         <body>
-            <h2>Product Description</h2>
+            <h2>Cart</h2>
             <fieldset>
                 <form action="" method="post">
 				
                     <table>
-					<img src='".$p["img"]."' width='100px' height='100px'>
+					<img src="<?php $p["img"];?>" width='100px' height='100px'>
                         <tr>
                             <td>Product Name: </td>
                             <td><?php echo $p["name"] ;?></td>
@@ -30,6 +30,8 @@ $p = getProduct($id);
                             <td>Product Price: </td>
                             <td><?php echo $p["price"] ;?></td>
                         </tr>
+						
+						
 						
 						<tr>
                             <td>Quantity: </td>

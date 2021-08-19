@@ -65,7 +65,7 @@
 				session_start();
 				$_SESSION["loggeduser"] = $_POST["uname"];
 				//if($user["status"] == "active" && $user["type"]=="admin")
-					header("Location: dashboard.php");
+					header("Location: allcategories.php");
 				//else if($user["status"] == "active" && $user["type"]=="user"){
 					//header("Location: user_dashboard.php");
 				//}

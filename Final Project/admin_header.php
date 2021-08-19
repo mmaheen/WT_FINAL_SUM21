@@ -1,3 +1,7 @@
+<?php //if(!isset ($_SESSION["loggeduser"])){
+	//header ("Location: login.php");
+//}
+?>
 <html>
 
 	<head>
@@ -5,10 +9,12 @@
 		<link rel="stylesheet" href="styles/mystyle.css">
 	</head>
 	<body>
-		<h3 align= "right"><a href="guest_login.php">Logout</a></h3>	
-	
-		<h4 align= "center"><a href="allproducts.php">All Products</a></h4>
-		
-		<h4 align= "center"><a href="allcategories.php">All Categories</a></h4>
-		
+		<h3 align= "right"><a href="index.php">Logout</a></h3>	
+		<h4 align= "center"><a href="dashboard.php">Dashboard</a></h4>
+		<h4 align= "center"><a href="adminallproducts.php">All Products</a></h4>
+		<h4 align= "center"><a href="addproduct.php">Add Product</a></h4>
+		<h4 align= "center"><a href="adminallcategories.php">All Categories</a></h4>
+		<h4 align= "center"><a href="addcategory.php">Add Category</a></h4>
+		<h4 align= "center"><a href="adminallbrands.php">All Brands</a></h4>
+		<h4 align= "center"><a href="addbrand.php">Add Brands</a></h4>
 			

@@ -1,12 +1,14 @@
 <?php
 	require_once 'models/db_config.php';
 	$db_err="";
+	$name="";
+	$err_name="";
 	if(isset($_POST["add_category"])){
 		//validations
 		//if no error
 		$rs = insertCategory($_POST["name"]);
 		if($rs === true){
-			header("Location: allcategories.php");
+			header("Location: adminallcategories.php");
 		}
 		$db_err = $rs;
 	}
@@ -16,7 +18,18 @@
 		
 		$rs = updateCategory($_POST["name"],$_POST["id"]);
 		if($rs === true){
-			header("Location: allcategories.php");
+			header("Location: adminallcategories.php");
+		}
+		$db_err = $rs;
+	}
+	
+	else if (isset($_POST["delete_category"])){
+		//validations
+		//if no error
+		
+		$rs = deleteCategory();
+		if($rs === true){
+			header("Location: adminallcategories.php");
 		}
 		$db_err = $rs;
 	}
@@ -39,4 +52,10 @@
 		$query = "update categories set name= '$name' where id = $id";
 		return execute($query);
 	}
+	function deleteCategory(){
+		$id= $_GET["id"];
+		$query = "DELETE FROM `categories` WHERE `id` = $id";
+		return execute($query);
+	}
+	
 ?>

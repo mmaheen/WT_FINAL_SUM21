@@ -1,4 +1,4 @@
-<?php include 'admin_header.php';
+<?php include 'guest_header.php';
 	include 'controllers/CategoryController.php';
 	
 	$categories = getAllCategories();

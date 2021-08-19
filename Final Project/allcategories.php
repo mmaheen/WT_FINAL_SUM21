@@ -1,29 +1,32 @@
-<?php include 'admin_header.php';
+<?php 
+$cookie_name = "user";
+$cookie_value = "John Doe";
+setcookie($cookie_name, $cookie_value, time() + 60, "/"); 
+
+include 'guest_header.php';
 	include 'controllers/CategoryController.php';
 	
 	$categories = getAllCategories();
 ?>
-<!--All Categories starts -->
 
 <div>
-	<h3 class="text">All Categories</h3>
-	<table >
-		<thead>
-			<th>Sl#</th>
+	<h3 align ="center">All Categories</h3>
+	<table align ="center">
+		<!--<thead>
+			<th>SN<th>
 			<th> Name</th>
-			<th>Product Count </th>
 			<th></th>
 			<th></th>
 			
-		</thead>
+		</thead>-->
 		<tbody>
 			<?php
 				$i=1;
 				foreach($categories as $c){
 					echo "<tr>";
-						echo "<td>$i</td>";
+						//echo "<td>$i</td>";
 						echo "<td>".$c["name"]."</td>";
-						//echo '<td><a href="editcategory.php?id='.$c["id"].'" class="btn btn-success">Edit</a></td>';
+						echo '<td><a href="filtercategory.php?id='.$c["id"].'" class="btn btn-success">Check out</a></td>';
 						//echo '<td><a>Delete</a></td>';
 					echo "</tr>";
 					$i++;
@@ -34,5 +37,5 @@
 		</tbody>
 	</table>
 </div>
-<!--All Categories ends -->
-<?php include 'admin_footer.php';?>
+
+<?php include 'guest_footer.php';?>

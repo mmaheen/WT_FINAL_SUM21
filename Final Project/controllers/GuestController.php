@@ -15,7 +15,7 @@
 			$err_name="Name Required";
 			$hasError=true;
 		}else{
-			$name=$_POST["name"];
+			$name=htmlspecialchars($_POST["name"]);
 		}
 		if(empty($_POST["uname"])){
 			$err_uname="Username Required";
@@ -40,7 +40,7 @@
 			$rs = insertUser($name,$uname,$email,$pass);
 			//var_dump($rs);
 			if($rs === true){
-				header("Location: guest_login.php");
+				header("Location:guest_login.php");
 			}
 			$err_db = $rs;
 			
@@ -65,7 +65,7 @@
 				session_start();
 				$_SESSION["loggeduser"] = $_POST["uname"];
 				//if($user["status"] == "active" && $user["type"]=="admin")
-					header("Location: allcategories.php");
+					header("Location: allproducts.php");
 				//else if($user["status"] == "active" && $user["type"]=="user"){
 					//header("Location: user_dashboard.php");
 				//}
